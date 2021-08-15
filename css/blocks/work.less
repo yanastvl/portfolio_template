@@ -1,0 +1,52 @@
+// main: ../style.less
+
+.work {
+    overflow: hidden;
+
+    box-shadow: 0 0 4px @opacity_purple;
+    border-radius: 10px;
+
+    transition: box-shadow .2s linear;
+
+    &:hover {
+        box-shadow: 0px 0px 25px fade(#000, 25%);
+    }
+
+    @media @mobile {
+        max-width: 370px;
+    }
+
+    @media @mobile-sm {
+        margin: 0 auto;
+    }
+
+}
+
+.work__image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 35px;
+}
+
+.work__content {
+    padding: 1rem 0.8rem;
+}
+
+.work__cat {
+    margin-bottom: 0.5rem;
+
+    font-size: .8rem;
+    color: @purple;
+    text-transform: uppercase;
+}
+
+.work__title {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 1.06rem;
+    color: @purple;
+    text-transform: uppercase;
+    font-weight: 700;
+}

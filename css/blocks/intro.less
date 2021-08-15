@@ -1,0 +1,84 @@
+// main: ../style.less
+
+
+.intro {
+    @media @mobile {
+        margin-top: 100px;
+    }
+}
+
+.intro__inner {
+    display: flex;
+    padding-bottom: 8rem;
+    padding-top: 6.6rem;
+    position: relative;
+
+    background: url('../images/pngwing.com.png') right no-repeat;
+    background-size: 65%;
+
+    transition: background .2s linear;
+
+    &:hover {
+        background-size: 75%;
+        flex-grow: 5;
+        filter: grayscale(0) blur(0.2);
+        opacity: 1;
+    }
+
+    border-bottom: 1px solid rgba(75, 0, 130, 0.3);
+
+    @media @tablet {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    @media @mobile {
+        background: none;
+    }
+
+}
+
+.intro__content {
+    width: 50%;
+
+    @media @mobile {
+        width: 60%;
+    }
+
+    @media @mobile-sm {
+        width: 100%;
+    }
+
+}
+
+.intro__subtitle {
+    font-size: 2.13rem;
+    color: @purple;
+    font-weight: 200;
+
+    @media @tablet {
+        font-size: 1.5rem;
+    }
+
+}
+
+.intro__title {
+    margin-bottom: 5px;
+
+    font-size: 3rem;
+    color: @purple;
+    font-weight: 700;
+
+    @media @tablet {
+        font-size: 2rem;
+    }
+
+
+}
+
+.intro__text {
+    margin-bottom: 25px;
+
+    font-size: 1.2rem;
+    color: @opacity_purple;
+}
