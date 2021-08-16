@@ -16,6 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Portfolio</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -104,7 +105,7 @@
             <div class="portfolio" id="portfolio">
                 <div class="portfolio__col" data-cat="app">
                     <div class="work" data-modal="#modal_project_1">
-                        <img class="work__image" src="https://place-hold.it/370x300/b45cf2" alt="">
+                        <img class="work__image" src="https://image.readyforsky.com/i/tWSomc7R2dSU923w1EHh1AKLrkwApiKq/370x300.png" alt="">
                         <div class="work__content"></div>
                         <div class="work__cat">Category:App</div>
                         <div class="work__title">
@@ -215,8 +216,8 @@
                         </div>
                     </div>
                 </div>
-
             </div><!-- /.portfolio -->
+
             <div class="text-center">
                 <button class="btn  btn--sm" type="button" id="load" href="#">LOAD MORE WORK</button>
             </div>
@@ -406,7 +407,7 @@
                 <div class="modal-work__preview">
                     <div data-slider="slick">
                         <div>
-                            <img class="modal-work__photo" src="https://place-hold.it/790x780/b45cf2" alt="">
+                            <img class="modal-work__photo" src="https://image.readyforsky.com/i/tWSomc7R2dSU923w1EHh1AKLrkwApiKq/790x780.png" alt="">
                         </div>
                         <div>
                             <img class="modal-work__photo" src="https://place-hold.it/790x780/333" alt="">
@@ -634,7 +635,7 @@
                         </li>
                     </ul>
 
-                    <form class="form" action="/" method="post">
+                    <form id="emailForm" class="form" action="/" method="post">
                         <div class="form__group">
                             <label class="form__label" for="input-email">Adress e-mail</label>
                             <input class="form__input" name="input-email" type="text" id="input-email" placeholder="Adress e-mail">

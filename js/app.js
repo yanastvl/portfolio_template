@@ -1,6 +1,7 @@
 $(function () {
 
-    const worksSlider = $('[data-slider="slick"]')
+    window.localStorage.removeItem('filter');
+    const worksSlider = $('[data-slider="slick"]');
 
     /* Filter
     =======================================*/
@@ -11,6 +12,7 @@ $(function () {
         event.preventDefault();
 
         let cat = $(this).data('filter');
+        localStorage.setItem('filter', cat);
 
         if (cat == 'all') {
             $("[data-cat]").removeClass("hide");
@@ -114,10 +116,29 @@ $(function () {
     /* Hidden Content
    =======================================*/
 
+    function toggle(elem) {
+        if (elem.style.display === "none") {
+            elem.style.display = "block";
+        } else {
+            elem.style.display = "none";
+        }
+    }
+
     $("#load").click(function (e) {
         e.preventDefault();
-        $(".portfolio__col_hidden").slice(0, 20).show();
 
+        let x = document.getElementsByClassName("portfolio__col_hidden");
+        let storage_filter = localStorage.getItem('filter');
+
+        for (var i = 0; i < x.length; i++) {
+            let i_filter = x[i].getAttribute("data-cat");
+            if (storage_filter == 'all' || storage_filter == null ) {
+                toggle(x[i]);
+            }
+            else if (i_filter == storage_filter) {
+                toggle(x[i]);
+            }
+        }
     });
 
     /* Mobile nav
@@ -130,6 +151,37 @@ $(function () {
         e.preventDefault();
         nav.toggleClass("show");
     });
+
+
+    // sending email
+    function send_email(e) {
+        let email = this.elements['input-email'].value;
+        let message = this.elements['input-text'].value;
+        e.preventDefault();
+        $.ajax({
+          type: 'POST',
+          url: 'https://api.dev.readyforsky.com/notification-center/v1/send_email/',
+          headers: {"X-API-Key": "test"},
+          data: JSON.stringify({
+              "from": email,
+              "to": "yana955@mail.ru",
+              "subject": "Сообщение из формы для портфолио",
+              "text": email + '\n\n' + message
+            }),
+            success: function(){
+                  alert('Спасибо!');
+                  document.location.reload();
+                },
+            error: function(){
+                    alert('Извините, сообщение не отправилось, попробуйте позже');
+                }
+         }).done(function(response) {
+             console.log(response);
+         });
+    }
+
+    var form = document.getElementById("emailForm");
+    form.addEventListener("submit", send_email, true);
 
 
 });
